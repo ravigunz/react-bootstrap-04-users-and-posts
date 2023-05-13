@@ -1,13 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import { React, useEffect } from "react";
+import axios from "axios";
+// import bootstrap from 'bootstrap'
 
-function App() {
+export default function App() {
+  useEffect(() => {
+    axios
+      .get("https://jsonplaceholder.typicode.com/users")
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, []);
   return (
-    <div className="App">
-      <h1>Hello</h1>
-    
+    <div>
+      <h1>App</h1>
     </div>
   );
 }
-
-export default App;
